@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{81882CB9-A25A-489B-AB24-5FDFF3A34238}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.UploadCenter.SI", "MemoryVault.UploadCenter.SI\MemoryVault.UploadCenter.SI.csproj", "{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Logger.SI", "MemoryVault.Logger.SI\MemoryVault.Logger.SI.csproj", "{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{29E6062C-1B03-4F4B-8A64-08459EEB8069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Common.Types", "MemoryVault.Common.Types\MemoryVault.Common.Types.csproj", "{9BD0DA1B-378C-442A-839E-6D4756438F0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Common.Utils", "MemoryVault.Common.Utils\MemoryVault.Common.Utils.csproj", "{145FD837-FEAB-4836-8D1E-E5FC57622525}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD0DA1B-378C-442A-839E-6D4756438F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD0DA1B-378C-442A-839E-6D4756438F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD0DA1B-378C-442A-839E-6D4756438F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD0DA1B-378C-442A-839E-6D4756438F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145FD837-FEAB-4836-8D1E-E5FC57622525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145FD837-FEAB-4836-8D1E-E5FC57622525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145FD837-FEAB-4836-8D1E-E5FC57622525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145FD837-FEAB-4836-8D1E-E5FC57622525}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7} = {81882CB9-A25A-489B-AB24-5FDFF3A34238}
+		{20FFBB9C-27F4-4736-90CA-2CC043FC17F8} = {81882CB9-A25A-489B-AB24-5FDFF3A34238}
+		{9BD0DA1B-378C-442A-839E-6D4756438F0F} = {29E6062C-1B03-4F4B-8A64-08459EEB8069}
+		{145FD837-FEAB-4836-8D1E-E5FC57622525} = {29E6062C-1B03-4F4B-8A64-08459EEB8069}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79CD690F-3845-4218-9EF0-3833B90FC25D}
+	EndGlobalSection
+EndGlobal
