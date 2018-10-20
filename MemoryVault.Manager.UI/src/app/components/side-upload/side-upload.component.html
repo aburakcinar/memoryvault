@@ -1,0 +1,64 @@
+<div class="row mt-2 ">
+  <div class="col-12">
+    <file-drop headertext="" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" customstyle="drop-zone-custom"
+      class="drop-zone" (onFileLeave)="fileLeave($event)">
+      <span>Drop files here</span>
+    </file-drop>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-12">
+    <button type="button" class="btn btn-primary w-100" [(ngModel)]="autoUpload" btnCheckbox (click)="handleAutoUpload()"
+      btnCheckboxTrue="On" btnCheckboxFalse="Off">
+      Auto Upload : {{ autoUpload }}
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    Uploading :{{ isUploading }}
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-sm table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">%</th>
+            <th scope="col">State</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="upload-name-style">
+          <tr *ngFor="let item of queue">
+            <td>{{ item?.file?.name }} 
+              <br/>
+              {{ item?.file?.size/1024/1024 | number:'.2' }} MB
+            </td>
+            <td>{{ item.progress + ' %' }}</td>
+            <td>
+              <span *ngIf="item.isPending()" class="badge badge-default">Pending</span>
+              <span *ngIf="item.isSuccess()" class="badge badge-success">Uploaded</span>
+              <span *ngIf="item.inProgress()" class="badge badge-warning">Uploading</span>
+              <span *ngIf="item.isError()" class="badge badge-danger">Error</span>
+              <span *ngIf="item.inQueued()" class="badge badge-secondary">Queued</span>
+            </td>
+            <td class="text-right">
+              <a tooltip="Upload file" (click)="item.upload()" *ngIf="item.isUploadable()">
+                <i class="fa fa-upload"></i>
+              </a>
+              <a tooltip="Cancel upload" (click)="item.cancel()" *ngIf="item.inProgress()">
+                <i class="fa fa-times-circle"></i>
+              </a>
+              <a tooltip="Remove from queue" (click)="item.remove()" *ngIf="!item.inProgress()">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

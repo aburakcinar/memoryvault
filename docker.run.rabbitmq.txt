@@ -1,0 +1,1 @@
+docker container run --rm -d -h my-rabbit -p 5672:5672 --name my-rabbit rabbitmq:3

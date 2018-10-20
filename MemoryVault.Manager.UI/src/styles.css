@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "https://fonts.googleapis.com/css?family=Nunito";
+@import "https://use.fontawesome.com/releases/v5.3.1/css/all.css";
+
+
+.drop-zone-custom{
+    margin: auto;
+    height: 120px;
+    border: 4px dashed #ccc;
+}

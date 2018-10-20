@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using MemoryVault.Common.Types.Enums;
-using Newtonsoft.Json.Linq;
 
 namespace MemoryVault.Common.Types.Models.Logs
 {
