@@ -12,11 +12,10 @@ WORKDIR /src
 COPY . .
 
 WORKDIR /src/MemoryVault.Logger.SI
-RUN dotnet restore
-RUN dotnet build -c Release -o /app
+RUN dotnet restore && dotnet build -c Release -o /app
 
 # Build runtime image
-FROM microsoft/aspnetcore:2.0
-WORKDIR /app
-COPY --from=build-env . .
-ENTRYPOINT ["dotnet", "memoryvault.logger.si.dll"]
+#FROM microsoft/aspnetcore:2.0
+#WORKDIR /app
+#COPY --from=build-env . .
+#ENTRYPOINT ["dotnet", "memoryvault.logger.si.dll"]

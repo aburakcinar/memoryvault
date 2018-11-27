@@ -23,7 +23,7 @@ services:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
     volumes:
-      - C:/DOCKER_DATA/mongodb_log/data/db:/data/db
+      - //D/DOCKER_DATA/mongodb_log/data/db:/data/db
     command: mongod --smallfiles --logpath=/dev/null # --quiet
     networks:
       - backend

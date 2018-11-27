@@ -31,29 +31,29 @@ namespace MemoryVault.Logger.SI.Controllers
             return Ok();
         }
 
-        //[HttpPost(), ActionName("trace")]
-        //public IActionResult Trace([FromBody]JRaw message)
-        //{
-        //    _repository.Trace(message);
+        [HttpPost(), ActionName("trace")]
+        public IActionResult Trace()
+        {
+            _repository.Trace(Request.GetRawBodyString());
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
-        //[HttpPost(), ActionName("warning")]
-        //public IActionResult Warning([FromBody]JRaw message)
-        //{
-        //    _repository.Warning(message);
+        [HttpPost(), ActionName("warning")]
+        public IActionResult Warning()
+        {
+            _repository.Warning(Request.GetRawBodyString());
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
-        //[HttpPost(), ActionName("error")]
-        //public IActionResult Error([FromBody]JRaw message)
-        //{
-        //    _repository.Error(message);
+        [HttpPost(), ActionName("error")]
+        public IActionResult Error()
+        {
+            _repository.Error(Request.GetRawBodyString());
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
 
         //[HttpPost()]

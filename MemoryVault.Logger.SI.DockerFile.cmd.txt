@@ -1,0 +1,1 @@
+docker image build --tag narayan/memoryvault.logger.si:1.0.0 --file MemoryVault.Logger.SI.DockerFile .

@@ -5,17 +5,22 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{81882CB9-A25A-489B-AB24-5FDFF3A34238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.UploadCenter.SI", "MemoryVault.UploadCenter.SI\MemoryVault.UploadCenter.SI.csproj", "{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.UploadCenter.SI", "MemoryVault.UploadCenter.SI\MemoryVault.UploadCenter.SI.csproj", "{22CC40CE-DC2D-4CE7-971E-80D9B4FACFB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Logger.SI", "MemoryVault.Logger.SI\MemoryVault.Logger.SI.csproj", "{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.Logger.SI", "MemoryVault.Logger.SI\MemoryVault.Logger.SI.csproj", "{20FFBB9C-27F4-4736-90CA-2CC043FC17F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{29E6062C-1B03-4F4B-8A64-08459EEB8069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Common.Types", "MemoryVault.Common.Types\MemoryVault.Common.Types.csproj", "{9BD0DA1B-378C-442A-839E-6D4756438F0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.Common.Types", "MemoryVault.Common.Types\MemoryVault.Common.Types.csproj", "{9BD0DA1B-378C-442A-839E-6D4756438F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Common.Utils", "MemoryVault.Common.Utils\MemoryVault.Common.Utils.csproj", "{145FD837-FEAB-4836-8D1E-E5FC57622525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.Common.Utils", "MemoryVault.Common.Utils\MemoryVault.Common.Utils.csproj", "{145FD837-FEAB-4836-8D1E-E5FC57622525}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{72EA9116-8E70-41DD-8A77-859D8679C1F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerFiles", "DockerFiles", "{BA6C3A9E-3BDA-453C-B29B-F0F9B30233FB}"
+	ProjectSection(SolutionItems) = preProject
+		MemoryVault.Logger.SI.DockerFile = MemoryVault.Logger.SI.DockerFile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
