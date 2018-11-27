@@ -1,19 +1,12 @@
 <div class="row">
   <div class="col-xl-9 col-lg-8 col-6">
     <h3>Gallery</h3>
+    <button class="btn btn-primary" (click)="refresh()">Refresh</button>
     <div class="row">
-      <div class="col-xl-3">
-        <app-gallery-item></app-gallery-item>
+      <div class="col-xl-3" *ngFor="let item of (items | async)">
+        <app-gallery-item [model]="item"></app-gallery-item>
       </div>
-      <div class="col-xl-3">
-        <app-gallery-item></app-gallery-item>
-      </div>
-      <div class="col-xl-3">
-        <app-gallery-item></app-gallery-item>
-      </div>
-      <div class="col-xl-3">
-        <app-gallery-item></app-gallery-item>
-      </div>
+      
     </div>
   </div>
   <div class="col-xl-3 col-lg-4 col-6 side-upload-container" style="height: 100vh">

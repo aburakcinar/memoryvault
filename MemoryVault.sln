@@ -17,7 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.Manager.SI", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.Worker.SI", "MemoryVault.Worker.SI\MemoryVault.Worker.SI.csproj", "{161FFB61-00BF-4CE2-888E-CD755BCDEBB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryVault.Queue.RabbitMQ", "MemoryVault.Queue.RabbitMQ\MemoryVault.Queue.RabbitMQ.csproj", "{3426C302-CD95-4166-A2A8-717899524675}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryVault.Queue.RabbitMQ", "MemoryVault.Queue.RabbitMQ\MemoryVault.Queue.RabbitMQ.csproj", "{3426C302-CD95-4166-A2A8-717899524675}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerCompose", "DockerCompose", "{BA4DA389-0413-4014-9A84-3E009D60729D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-development.yml = docker-compose-development.yml
+		MemoryVault.Manager.UI.dockerfile = MemoryVault.Manager.UI.dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

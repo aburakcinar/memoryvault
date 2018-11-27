@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -21,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MemoryVault.Common.Types\MemoryVault.Common.Types.csproj" />
+    <ProjectReference Include="..\MemoryVault.Common.Utils\MemoryVault.Common.Utils.csproj" />
   </ItemGroup>
 
 </Project>

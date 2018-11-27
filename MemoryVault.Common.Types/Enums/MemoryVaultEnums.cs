@@ -4,6 +4,12 @@ using System.Text;
 
 namespace MemoryVault.Common.Types.Enums
 {
+	public class MemoryVaultCollections
+	{
+		public const string Memories = "memories";
+		public const string MemoryFiles = "memoryfiles";
+	}
+
     public class MemoryVaultConstants
     {
 		public const string QUEUE_NAME = "MEMORY_VAULT_QUEUE";

@@ -16,7 +16,7 @@ namespace MemoryVault.Common.Utils.Data.Mongo
 
         #region Properties
 
-        public virtual string ConnectionString { get; private set; }
+        protected string ConnectionString { get; set; }
 
         public abstract string DatabaseName { get; }
 

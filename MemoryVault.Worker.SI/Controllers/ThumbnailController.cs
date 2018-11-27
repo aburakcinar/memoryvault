@@ -23,13 +23,6 @@ namespace MemoryVault.Worker.SI.Controllers
 		[HttpGet, ActionName("test")]
 		public async Task<IActionResult> TestGenerate()
 		{
-
-			//var client = new MongoDB.Driver.MongoClient("mongodb://root:ASD123qwe.@localhost/?safe=true");
-			//var db = client.GetDatabase("memoryvault");
-
-			//var coll = db.GetCollection<MemoryItemModel>("memories");
-
-			//var item = await coll.Find(p => true).FirstOrDefaultAsync();
 			return await Generate("5baf49d47f2e830a58a65b2a");
 		}
 

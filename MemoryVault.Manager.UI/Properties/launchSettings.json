@@ -13,17 +13,43 @@
       "launchBrowser": true,
       "launchUrl": "api/v1/upload",
       "environmentVariables": {
+        "MAIN_CONNECTION_STRING": "mongodb://root:ASD123qwe.@localhost/?safe=true",
+        "DOCKER": "NO",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MemoryVault.Manager.UI": {
+    "Development": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/v1/queue/test",
       "environmentVariables": {
+        "MAIN_CONNECTION_STRING": "mongodb://root:ASD123qwe.@localhost/?safe=true",
+        "DOCKER": "NO",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:5000"
+    },
+    "DevelopmentDocker": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/v1/queue/test",
+      "environmentVariables": {
+        "MAIN_CONNECTION_STRING": "",
+        "DOCKER": "YES",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
+    },
+    "ProductionDocker": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/v1/queue/test",
+      "environmentVariables": {
+        "MAIN_CONNECTION_STRING": "",
+        "DOCKER": "YES",
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "http://localhost:80"
     }
   }
 }

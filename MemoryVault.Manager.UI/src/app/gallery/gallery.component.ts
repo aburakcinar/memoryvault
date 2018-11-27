@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-gallery',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  items : Observable<any>;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  }
+
+  refresh() {
+    this.items = this.http.get("http://localhost:5000/api/gallery/20");
+    console.log("refreshed");
   }
 
 }
