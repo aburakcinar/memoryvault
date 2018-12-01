@@ -5,23 +5,23 @@ using System.Threading.Tasks;
 
 namespace MemoryVault.Manager.UI.Controllers
 {
-  [Route("api/[controller]")]
-  [ApiController]
-  public class ThumbFetchController : ControllerBase
-  {
-    private IVaultDataRepository _repo;
-
-    public ThumbFetchController(IVaultDataRepository repo)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ThumbFetchController : ControllerBase
     {
-      _repo = repo;
-    }
+        private IVaultDataRepository _repo;
 
-    [HttpGet("{id}/{size}")]
-    public async Task<IActionResult> Fetch(string id, ThumbnailSizes size)
-    {
-      var data = await _repo.GetThumbDataAsync(id, size);
+        public ThumbFetchController(IVaultDataRepository repo)
+        {
+            _repo = repo;
+        }
 
-      return File(data,"image/png");
+        [HttpGet("{id}/{size}")]
+        public async Task<IActionResult> Fetch(string id, ThumbnailSizes size)
+        {
+            var data = await _repo.GetThumbDataAsync(id, size);
+
+            return File(data, "image/png");
+        }
     }
-  }
 }
