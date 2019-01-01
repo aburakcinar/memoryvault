@@ -1,0 +1,1 @@
+docker image build -f MemoryVault.Worker.SI.dockerfile --rm -t memoryvault.worker.si:0.0.1 .

@@ -10,12 +10,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.DockerSecrets.Unofficial" Version="1.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.1" />
-    <PackageReference Include="MongoDB.Driver" Version="2.7.0" />
-    <PackageReference Include="MongoDB.Driver.GridFS" Version="2.7.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.7.2" />
+    <PackageReference Include="MongoDB.Driver.GridFS" Version="2.7.2" />
+    <PackageReference Include="NLog" Version="4.5.11" />
+    <PackageReference Include="NLog.Mongo" Version="4.5.0.57" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.7.0" />
     <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0005" />
     <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0005" />
@@ -24,6 +28,12 @@
   <ItemGroup>
     <ProjectReference Include="..\MemoryVault.Common.Types\MemoryVault.Common.Types.csproj" />
     <ProjectReference Include="..\MemoryVault.Common.Utils\MemoryVault.Common.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

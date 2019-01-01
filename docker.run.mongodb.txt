@@ -1,1 +1,1 @@
-docker container run --rm -d -h my-rabbit -p 5672:5672 --name my-rabbit rabbitmq:3
+docker container run --rm -d -h my-mongo -p 27017:27017 --name my-mongo -e MONGO_INITDB_ROOT_USERNAME:root -e MONGO_INITDB_ROOT_PASSWORD:ASD123qwe. mongo:3.6

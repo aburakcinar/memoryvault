@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemoryVault.Common.Types.Interfaces;
 using MemoryVault.Common.Types.Models.Config;
+using MemoryVault.Worker.SI.Data.Repositories;
 using MemoryVault.Worker.SI.Models;
 using MemoryVault.Worker.SI.Utils;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +34,10 @@ namespace MemoryVault.Worker.SI
             {
                 builder.AddUserSecrets<Startup>();
             }
+            else
+            {
+                builder.AddDockerSecrets();
+            }
 
             Configuration = builder.Build();
         }
@@ -44,6 +50,7 @@ namespace MemoryVault.Worker.SI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 			services.AddSingleton<IHostedService, WorkerHostedService>();
+            services.AddTransient<IRepository, WorkerMongoRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

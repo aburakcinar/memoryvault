@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  memoryvault.worker.si.narayan.local:
+    image: memoryvault.worker.si.narayan.local
+    build:
+      context: .
+      dockerfile: MemoryVault.Worker.SI.dockerfile
+    ports:
+      - "8102:80"
+    secrets:
+      - secret_conf
+#    networks:
+#      - backend
+#      - frontend
+#    depends_on:
+#      - my-mongo
+#      - my-rabbitmq
+
+#  my-mongo:
+#    external: true
+
+      
+#networks:
+#  backend:
+#  frontend:
+
+secrets:
+  secret_conf:
+    file: ./secrets.json

@@ -21,7 +21,7 @@ namespace MemoryVault.Manager.SI
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 			services.AddSingleton<IHostedService, WorkerHostedService>();
-			services.AddSingleton<IHostedService, MirrorWorkerHostedService>();
+			//services.AddSingleton<IHostedService, MirrorWorkerHostedService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

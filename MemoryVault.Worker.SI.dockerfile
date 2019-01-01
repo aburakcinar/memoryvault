@@ -18,25 +18,10 @@ COPY MemoryVault.Manager.SI/.	./MemoryVault.Manager.SI/
 COPY MemoryVault.Worker.SI/.	./MemoryVault.Worker.SI/
 
 FROM build AS publish
-WORKDIR /src/MemoryVault.Manager.UI
+WORKDIR /src/MemoryVault.Worker.SI
 RUN dotnet publish -c Release -o out
-
-FROM node:8.11-alpine as build_ng
-# install angular-cli as node user
-RUN chown -R node:node /usr/local/lib/node_modules \
-    && chown -R node:node /usr/local/bin
-USER node
-RUN npm install -g @angular/cli
-
-WORKDIR /app
-COPY --from=publish /src/MemoryVault.Manager.UI ./
-
-# set npm as default package manager for root
-USER root
-RUN ng set --global packageManager=npm
-RUN ng build --aot --prod
 
 FROM microsoft/dotnet:2.1-aspnetcore-runtime AS runtime
 WORKDIR /app
-COPY --from=build_ng /app/out ./
-ENTRYPOINT ["dotnet", "MemoryVault.Manager.UI.dll"]
+COPY --from=publish /src/MemoryVault.Worker.SI/out ./
+ENTRYPOINT ["dotnet", "MemoryVault.Worker.SI.dll"]

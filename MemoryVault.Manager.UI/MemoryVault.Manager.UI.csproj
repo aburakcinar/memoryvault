@@ -2,9 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
-    <TypeScriptCompilerBlocked>true</TypeScriptCompilerBlocked> 
-    <PostBuildEvent>ng build --aot</PostBuildEvent>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptCompilerBlocked>true</TypeScriptCompilerBlocked>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.7.0" />
     <PackageReference Include="MongoDB.Driver.GridFS" Version="2.7.0" />

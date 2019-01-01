@@ -20,7 +20,7 @@
     "MemoryVault.Worker.SI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/v1/thumb/test",
+      "launchUrl": "api/check/config",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

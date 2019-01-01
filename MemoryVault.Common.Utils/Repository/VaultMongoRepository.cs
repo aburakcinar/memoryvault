@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace MemoryVault.Common.Utils.Repository
 {
-	public class VaultMongoRepository : BaseMongoContext, IVaultDataRepository, IVaultListRepository
+	public class VaultMongoRepository : BaseMongoRepository, IVaultDataRepository, IVaultListRepository
 	{
 		#region Fields
 

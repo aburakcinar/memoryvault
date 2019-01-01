@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerCompose", "DockerComp
 	ProjectSection(SolutionItems) = preProject
 		docker-compose-development.yml = docker-compose-development.yml
 		MemoryVault.Manager.UI.dockerfile = MemoryVault.Manager.UI.dockerfile
+		MemoryVault.Worker.SI.dockerfile = MemoryVault.Worker.SI.dockerfile
 	EndProjectSection
 EndProject
 Global

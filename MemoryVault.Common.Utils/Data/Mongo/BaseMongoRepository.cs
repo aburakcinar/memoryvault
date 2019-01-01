@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MemoryVault.Common.Types.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace MemoryVault.Common.Utils.Data.Mongo
 {
-    public abstract class BaseMongoContext : IDisposable
+    public abstract class BaseMongoRepository : IDisposable, IRepository
     {
         #region Fields
 
@@ -25,12 +26,12 @@ namespace MemoryVault.Common.Utils.Data.Mongo
 
         #region CTOR
 
-        public BaseMongoContext()
+        public BaseMongoRepository()
         {
 
         }
 
-        public BaseMongoContext(string connectionString)
+        public BaseMongoRepository(string connectionString)
         {
             ConnectionString = connectionString;
         }
@@ -59,6 +60,19 @@ namespace MemoryVault.Common.Utils.Data.Mongo
         protected IMongoCollection<TModel> GetCollection<TModel>(string collName)
         {
             return GetDatabase().GetCollection<TModel>(collName);
+        }
+
+        public bool IsAlive()
+        {
+            try
+            {
+                var db = GetDatabase();
+                return true;
+            }
+            catch(Exception exc)
+            {
+                return false;
+            }
         }
 
         #endregion
