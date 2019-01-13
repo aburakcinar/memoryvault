@@ -8,6 +8,8 @@ namespace MemoryVault.Common.Types.Models.Vault.List
 	{
 		public string Id { get; set; }
 
+		public bool IsSelected { get; set; }
+
 		public string FileName { get; set; }
 
 		public DateTime CreateTime { get; set; }

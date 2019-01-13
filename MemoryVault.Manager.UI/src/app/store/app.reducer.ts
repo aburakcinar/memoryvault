@@ -4,18 +4,31 @@ import { FileQueueObject, FileQueueStatus } from '../services/upload.service';
 
 export const allowedFileTypes: string[] = ['.jpg', '.jpeg', '.png', '.mp4', '.avi', '.mkv', '.mov'];
 
+export interface MemoryVaultListItem{
+    id: string;
+    isSelected: boolean;
+    fileName: string;
+    createTime: Date;
+}
+
 export interface AppState {
     isUploading: boolean;
     autoUpload: boolean;
     pendingUploads: FileQueueObject[];
     uploadQueue: FileQueueObject[];
+
+    lastOperation: string;
+
+    pendingList: MemoryVaultListItem[];
 }
 
 const initialState: AppState = {
     isUploading: false,
     autoUpload: false,
     pendingUploads: [],
-    uploadQueue: []
+    uploadQueue: [],
+    lastOperation: "",
+    pendingList: []
 };
 
 export function appReducer(state = initialState, action: AppActions.AppActions) {
@@ -95,9 +108,18 @@ export function appReducer(state = initialState, action: AppActions.AppActions) 
                 autoUpload: action.payload
             };
 
-
+            case (AppActions.FETCH_LIST_SUCCESS):
+            return {
+                ...state,
+                lastOperation: action.type,
+                pendingList: action.payload
+            };
 
         default:
+            return {
+                ...state,
+                lastOperation: action.type
+            };
             return state;
     }
 }

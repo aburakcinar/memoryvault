@@ -1,24 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<mat-toolbar>
+    <span>Memory Vault</span>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/gallery">Gallery</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/upload">Upload</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/sample-upload">Sample Upload</a>
-      </li>
-    </ul>   
-  </div>
-</nav>
+    <span class="example-fill-remaining-space"></span>
+
+    <span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <span>Galleries</span>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="navigate('/gallery/pending')">
+                <mat-icon>dialpad</mat-icon>
+                <span>Pending</span>
+            </button>
+            <button mat-menu-item (click)="navigate('/gallery/approved')">
+                <mat-icon>voicemail</mat-icon>
+                <span>Approved</span>
+            </button>
+        </mat-menu>
+    </span>
+    <span class="p-1"></span>
+</mat-toolbar>

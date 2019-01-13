@@ -3,12 +3,15 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from "@angular/common/htt
 import { Store } from "@ngrx/store";
 import { Effect, Actions } from '@ngrx/effects';
 import { HttpEvent, HttpEventType, HttpRequest } from '@angular/common/http';
+
+import { of } from "rxjs";
 import { switchMap, tap, take, map, catchError, flatMap, withLatestFrom } from 'rxjs/operators';
 
 import * as fromAppActions from './app.actions';
 import { AppState } from './app.reducer';
 import { UploadFile, FileSystemFileEntry } from "ngx-file-drop";
 import { SingleFileUploadService } from "../services/singlefileupload.service";
+import { ListingService } from '../services/listing.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppEffects {
@@ -115,9 +118,27 @@ export class AppEffects {
             })
         );
 
+    @Effect()
+    appFetchPendingItems = this.actions$
+        .ofType(fromAppActions.FETCH_PENDING_LIST)
+        .pipe(
+            tap(stt => console.log("Effect => FETCH_PENDING_LIST")),
+            map((action: fromAppActions.FetchApprovedList) => action),
+            switchMap((action: fromAppActions.FetchApprovedList) => {
+                return this.listService
+                  .fetchPending(action.payload.skip, action.payload.take )
+                  .pipe(
+                    map(lst => new fromAppActions.FetchListSucceed(lst)),
+                    catchError(error => of(new fromAppActions.FetchListFailed({ 'error' : error} )))
+                  );
+              })
+        );
+
 
     constructor(
         private actions$: Actions,
         private store$: Store<AppState>,
-        private sfus: SingleFileUploadService) { }
+        private sfus: SingleFileUploadService,
+        private http: HttpClient,
+        private listService: ListingService) { }
 }

@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xl-9 col-lg-8 col-6">
+        <mat-toolbar color="secondary">
+            <span></span>
+
+            <!-- This fills the remaining space of the current row -->
+            <span class="example-fill-remaining-space"></span>
+
+            <span>
+                <button mat-icon-button>
+                    <mat-icon aria-label="Approve">
+                      done</mat-icon>
+                </button>
+            </span>
+        </mat-toolbar>
+        <div class="row">
+            <div class="col-xl-3" *ngFor="let item of (contentAsync | async)">
+                <app-gallery-item [model]="item" class="m-1"></app-gallery-item>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-6 side-upload-container" style="height: 100vh">
+        <app-side-upload></app-side-upload>
+    </div>
+</div>

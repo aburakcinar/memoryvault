@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using MemoryVault.Common.Types.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace MemoryVault.Common.Types.Models
 		public string FileName { get; set; }
 
 		public string FileExtension { get; set; }
+
+		public VaultItemState? ApproveState { get; set; } = VaultItemState.PendingApprove;
 
 		public MemoryItemModel()
 		{

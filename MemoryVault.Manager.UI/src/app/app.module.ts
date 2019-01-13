@@ -24,10 +24,18 @@ import { SideUploadComponent } from './components/side-upload/side-upload.compon
 import { SingleFileUploadService } from './services/singlefileupload.service';
 import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PendingGalleryComponent } from './pages/pending-gallery/pending-gallery.component';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+
+
+
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "not-found", component: NotFoundComponent },
   { path: "gallery", component: GalleryComponent },
+  { path: "gallery/pending", component: PendingGalleryComponent },
+  { path: "gallery/approved", component: GalleryComponent },
   { path: "upload", component: UploadCenterComponent },
   { path: "sample-upload", component: SampleUploadComponent },
   { path: "**", redirectTo: "not-found" }
@@ -43,7 +51,8 @@ const appRoutes: Routes = [
     UploadCenterComponent,
     SampleUploadComponent,
     SideUploadComponent,
-    GalleryItemComponent
+    GalleryItemComponent,
+    PendingGalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +64,11 @@ const appRoutes: Routes = [
     StoreModule.forRoot({uploadFeature: appReducer}),
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    ButtonsModule
+    ButtonsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [ FileUploaderService, SingleFileUploadService ],
   bootstrap: [AppComponent]

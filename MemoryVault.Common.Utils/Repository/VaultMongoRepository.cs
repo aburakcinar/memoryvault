@@ -99,6 +99,36 @@ namespace MemoryVault.Common.Utils.Repository
 			return result;
 		}
 
+		public async Task<List<MemoryVaultListModel>> ListApproved(int skip, int take)
+		{
+			var coll = GetCollection<MemoryItemModel>(MemoryVaultCollections.Memories);
+
+			var result = await coll
+				.Find(f => f.ApproveState.GetValueOrDefault() == VaultItemState.Approved)
+				.SortByDescending(s => s.CreateTime)
+				.Skip(skip)
+				.Limit(take)
+				.Project(p => new MemoryVaultListModel { CreateTime = p.CreateTime, FileName = p.FileName, Id = p.Id.ToString() })
+				.ToListAsync();
+
+			return result;
+		}
+
+		public async Task<List<MemoryVaultListModel>> ListApprovePending(int skip, int take)
+		{
+			var coll = GetCollection<MemoryItemModel>(MemoryVaultCollections.Memories);
+
+			var result = await coll
+				.Find(f => !f.ApproveState.HasValue || f.ApproveState == VaultItemState.PendingApprove)
+				.SortByDescending(s => s.CreateTime)
+				.Skip(skip)
+				.Limit(take)
+				.Project(p => new MemoryVaultListModel { CreateTime = p.CreateTime, FileName = p.FileName, Id = p.Id.ToString() })
+				.ToListAsync();
+
+			return result;
+		}
+
 		#endregion
 	}
 }

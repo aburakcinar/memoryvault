@@ -1,3 +1,14 @@
 .gallery-item {
   border: 1px solid darkgray;
 }
+
+.card input[type='checkbox']{
+  position: absolute;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.card-selected{
+  border: 1px solid red !important;
+}

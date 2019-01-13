@@ -1,8 +1,8 @@
-<div class="card w-100" >
+<div class="card w-100" [ngClass]="{'card-selected':model.isSelected}">
   <img class="card-img-top" src="http://localhost:5000/api/thumbfetch/{{ model.id}}/M" alt="Card image cap">
+  <input type="checkbox" [checked]="model.isSelected" (change)="model.isSelected = !model.isSelected"/>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.Id : {{ model.id }}</p>
-    <a href="http://localhost:5000/api/thumbfetch/{{ model.id}}/S" class="btn btn-primary">Go somewhere</a>
+    <h6 class="card-title">{{ model.fileName }}</h6>    
+    <p>{{ model.isSelected }}</p>
   </div>
 </div>

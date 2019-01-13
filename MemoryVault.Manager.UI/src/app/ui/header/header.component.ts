@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbModal,NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeResult: string;
   toggleMenu = false;
   modalRef: NgbModalRef;
-  
+
   showMessage: boolean;
   message: string;
 
@@ -32,6 +32,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+  }
+
+  navigate(link: string){
+    this.router.navigate([link])
   }
 
 }

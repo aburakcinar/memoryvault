@@ -23,4 +23,10 @@ namespace MemoryVault.Common.Types.Enums
 		XL,
 		XXL
 	}
+
+	public enum VaultItemState
+	{
+		PendingApprove = 1,
+		Approved = 2
+	}
 }

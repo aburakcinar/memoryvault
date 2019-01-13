@@ -4,7 +4,7 @@
     <button class="btn btn-primary" (click)="refresh()">Refresh</button>
     <div class="row">
       <div class="col-xl-3" *ngFor="let item of (items | async)">
-        <app-gallery-item [model]="item"></app-gallery-item>
+        <app-gallery-item [model]="item" class="m-1"></app-gallery-item>
       </div>
       
     </div>
