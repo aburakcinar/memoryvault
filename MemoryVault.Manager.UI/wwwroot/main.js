@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-layout>\n  <router-outlet></router-outlet>\n</app-layout>\n"
+module.exports = "<app-layout>\r\n  <router-outlet></router-outlet>\r\n</app-layout>\r\n"
 
 /***/ }),
 
@@ -117,12 +117,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_gallery_item_gallery_item_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/gallery-item/gallery-item.component */ "./src/app/components/gallery-item/gallery-item.component.ts");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _pages_pending_gallery_pending_gallery_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pages/pending-gallery/pending-gallery.component */ "./src/app/pages/pending-gallery/pending-gallery.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -187,7 +189,10 @@ var AppModule = /** @class */ (function () {
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_16__["EffectsModule"].forRoot([_store_app_effects__WEBPACK_IMPORTED_MODULE_17__["AppEffects"]]),
                 !_environments_environment__WEBPACK_IMPORTED_MODULE_18__["environment"].production ? _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_4__["StoreDevtoolsModule"].instrument() : [],
                 ngx_bootstrap__WEBPACK_IMPORTED_MODULE_5__["ButtonsModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_24__["BrowserAnimationsModule"]
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_24__["BrowserAnimationsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_26__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_26__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_26__["MatIconModule"]
             ],
             providers: [_services_upload_service__WEBPACK_IMPORTED_MODULE_20__["FileUploaderService"], _services_singlefileupload_service__WEBPACK_IMPORTED_MODULE_22__["SingleFileUploadService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
@@ -218,7 +223,7 @@ module.exports = ".gallery-item {\r\n  border: 1px solid darkgray;\r\n}\r\n\r\n.
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card w-100\" [ngClass]=\"{'card-selected':model.isSelected}\">\n  <img class=\"card-img-top\" src=\"http://localhost:5000/api/thumbfetch/{{ model.id}}/M\" alt=\"Card image cap\">\n  <input type=\"checkbox\" [checked]=\"model.isSelected\" (change)=\"model.isSelected = !model.isSelected\"/>\n  <div class=\"card-body\">\n    <h6 class=\"card-title\">{{ model.fileName }}</h6>    \n    <p>{{ model.isSelected }}</p>\n  </div>\n</div>"
+module.exports = "<div class=\"card w-100\" [ngClass]=\"{'card-selected':model.isSelected}\">\r\n  <img class=\"card-img-top\" src=\"http://localhost:5000/api/thumbfetch/{{ model.id}}/M\" alt=\"Card image cap\">\r\n  <input type=\"checkbox\" [checked]=\"model.isSelected\" (change)=\"changeSelected()\"/>\r\n  <div class=\"card-body\">\r\n    <h6 class=\"card-title\">{{ model.fileName }}</h6>    \r\n    <p>{{ model.isSelected }}</p>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -233,6 +238,7 @@ module.exports = "<div class=\"card w-100\" [ngClass]=\"{'card-selected':model.i
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GalleryItemComponent", function() { return GalleryItemComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_appState_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/appState.service */ "./src/app/services/appState.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -243,10 +249,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var GalleryItemComponent = /** @class */ (function () {
-    function GalleryItemComponent() {
+    function GalleryItemComponent(appActions) {
+        this.appActions = appActions;
     }
     GalleryItemComponent.prototype.ngOnInit = function () {
+    };
+    GalleryItemComponent.prototype.changeSelected = function () {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -258,7 +268,7 @@ var GalleryItemComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./gallery-item.component.html */ "./src/app/components/gallery-item/gallery-item.component.html"),
             styles: [__webpack_require__(/*! ./gallery-item.component.css */ "./src/app/components/gallery-item/gallery-item.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_app_services_appState_service__WEBPACK_IMPORTED_MODULE_1__["AppStateService"]])
     ], GalleryItemComponent);
     return GalleryItemComponent;
 }());
@@ -285,7 +295,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row mt-2 \">\n  <div class=\"col-12\">\n    <file-drop headertext=\"\" (onFileDrop)=\"dropped($event)\" (onFileOver)=\"fileOver($event)\" customstyle=\"drop-zone-custom\"\n      class=\"drop-zone\" (onFileLeave)=\"fileLeave($event)\">\n      <span>Drop files here</span>\n    </file-drop>\n  </div>\n</div>\n<div class=\"row mt-2\">\n  <div class=\"col-12\">\n    <button type=\"button\" class=\"btn btn-primary w-100\" [(ngModel)]=\"autoUpload\" btnCheckbox (click)=\"handleAutoUpload()\"\n      btnCheckboxTrue=\"On\" btnCheckboxFalse=\"Off\">\n      Auto Upload : {{ autoUpload }}\n    </button>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-12\">\n    Uploading :{{ isUploading }}\n  </div>\n</div>\n<div class=\"row mt-2\">\n  <div class=\"col-12\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-sm table-striped\">\n        <thead class=\"thead-light\">\n          <tr>\n            <th scope=\"col\">Name</th>\n            <th scope=\"col\">%</th>\n            <th scope=\"col\">State</th>\n            <th scope=\"col\"></th>\n          </tr>\n        </thead>\n        <tbody class=\"upload-name-style\">\n          <tr *ngFor=\"let item of queue\">\n            <td>{{ item?.file?.name }} \n              <br/>\n              {{ item?.file?.size/1024/1024 | number:'.2' }} MB\n            </td>\n            <td>{{ item.progress + ' %' }}</td>\n            <td>\n              <span *ngIf=\"item.isPending()\" class=\"badge badge-default\">Pending</span>\n              <span *ngIf=\"item.isSuccess()\" class=\"badge badge-success\">Uploaded</span>\n              <span *ngIf=\"item.inProgress()\" class=\"badge badge-warning\">Uploading</span>\n              <span *ngIf=\"item.isError()\" class=\"badge badge-danger\">Error</span>\n              <span *ngIf=\"item.inQueued()\" class=\"badge badge-secondary\">Queued</span>\n            </td>\n            <td class=\"text-right\">\n              <a tooltip=\"Upload file\" (click)=\"item.upload()\" *ngIf=\"item.isUploadable()\">\n                <i class=\"fa fa-upload\"></i>\n              </a>\n              <a tooltip=\"Cancel upload\" (click)=\"item.cancel()\" *ngIf=\"item.inProgress()\">\n                <i class=\"fa fa-times-circle\"></i>\n              </a>\n              <a tooltip=\"Remove from queue\" (click)=\"item.remove()\" *ngIf=\"!item.inProgress()\">\n                <i class=\"fa fa-trash\"></i>\n              </a>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row mt-2 \">\r\n  <div class=\"col-12\">\r\n    <file-drop headertext=\"\" (onFileDrop)=\"dropped($event)\" (onFileOver)=\"fileOver($event)\" customstyle=\"drop-zone-custom\"\r\n      class=\"drop-zone\" (onFileLeave)=\"fileLeave($event)\">\r\n      <span>Drop files here</span>\r\n    </file-drop>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-12\">\r\n    <button type=\"button\" class=\"btn btn-primary w-100\" [(ngModel)]=\"autoUpload\" btnCheckbox (click)=\"handleAutoUpload()\"\r\n      btnCheckboxTrue=\"On\" btnCheckboxFalse=\"Off\">\r\n      Auto Upload : {{ autoUpload }}\r\n    </button>\r\n  </div>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-12\">\r\n    Uploading :{{ isUploading }}\r\n  </div>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-12\">\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-sm table-striped\">\r\n        <thead class=\"thead-light\">\r\n          <tr>\r\n            <th scope=\"col\">Name</th>\r\n            <th scope=\"col\">%</th>\r\n            <th scope=\"col\">State</th>\r\n            <th scope=\"col\"></th>\r\n          </tr>\r\n        </thead>\r\n        <tbody class=\"upload-name-style\">\r\n          <tr *ngFor=\"let item of queue\">\r\n            <td>{{ item?.file?.name }} \r\n              <br/>\r\n              {{ item?.file?.size/1024/1024 | number:'.2' }} MB\r\n            </td>\r\n            <td>{{ item.progress + ' %' }}</td>\r\n            <td>\r\n              <span *ngIf=\"item.isPending()\" class=\"badge badge-default\">Pending</span>\r\n              <span *ngIf=\"item.isSuccess()\" class=\"badge badge-success\">Uploaded</span>\r\n              <span *ngIf=\"item.inProgress()\" class=\"badge badge-warning\">Uploading</span>\r\n              <span *ngIf=\"item.isError()\" class=\"badge badge-danger\">Error</span>\r\n              <span *ngIf=\"item.inQueued()\" class=\"badge badge-secondary\">Queued</span>\r\n            </td>\r\n            <td class=\"text-right\">\r\n              <a tooltip=\"Upload file\" (click)=\"item.upload()\" *ngIf=\"item.isUploadable()\">\r\n                <i class=\"fa fa-upload\"></i>\r\n              </a>\r\n              <a tooltip=\"Cancel upload\" (click)=\"item.cancel()\" *ngIf=\"item.inProgress()\">\r\n                <i class=\"fa fa-times-circle\"></i>\r\n              </a>\r\n              <a tooltip=\"Remove from queue\" (click)=\"item.remove()\" *ngIf=\"!item.inProgress()\">\r\n                <i class=\"fa fa-trash\"></i>\r\n              </a>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -390,7 +400,7 @@ module.exports = "\r\n.side-upload-container{\r\n    border-left: 1px solid #333
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-xl-9 col-lg-8 col-6\">\n    <h3>Gallery</h3>\n    <button class=\"btn btn-primary\" (click)=\"refresh()\">Refresh</button>\n    <div class=\"row\">\n      <div class=\"col-xl-3\" *ngFor=\"let item of (items | async)\">\n        <app-gallery-item [model]=\"item\" class=\"m-1\"></app-gallery-item>\n      </div>\n      \n    </div>\n  </div>\n  <div class=\"col-xl-3 col-lg-4 col-6 side-upload-container\" style=\"height: 100vh\">\n    <app-side-upload></app-side-upload>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-xl-9 col-lg-8 col-6\">\r\n    <h3>Gallery</h3>\r\n    <button class=\"btn btn-primary\" (click)=\"refresh()\">Refresh</button>\r\n    <div class=\"row\">\r\n      <div class=\"col-xl-3\" *ngFor=\"let item of (items | async)\">\r\n        <app-gallery-item [model]=\"item\" class=\"m-1\"></app-gallery-item>\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n  <div class=\"col-xl-3 col-lg-4 col-6 side-upload-container\" style=\"height: 100vh\">\r\n    <app-side-upload></app-side-upload>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -460,7 +470,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<p>\r\n  home works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -523,7 +533,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  not-found works!\n</p>\n"
+module.exports = "<p>\r\n  not-found works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -575,7 +585,7 @@ var NotFoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BlbmRpbmctZ2FsbGVyeS9wZW5kaW5nLWdhbGxlcnkuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".example-fill-remaining-space {\r\n    /* This fills the remaining space, by using flexbox. \r\n       Every toolbar row uses a flexbox row layout. */\r\n    flex: 1 1 auto;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcGVuZGluZy1nYWxsZXJ5L3BlbmRpbmctZ2FsbGVyeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0k7c0RBQ2tEO0lBQ2xELGVBQWU7Q0FDbEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9wZW5kaW5nLWdhbGxlcnkvcGVuZGluZy1nYWxsZXJ5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhhbXBsZS1maWxsLXJlbWFpbmluZy1zcGFjZSB7XHJcbiAgICAvKiBUaGlzIGZpbGxzIHRoZSByZW1haW5pbmcgc3BhY2UsIGJ5IHVzaW5nIGZsZXhib3guIFxyXG4gICAgICAgRXZlcnkgdG9vbGJhciByb3cgdXNlcyBhIGZsZXhib3ggcm93IGxheW91dC4gKi9cclxuICAgIGZsZXg6IDEgMSBhdXRvO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -586,7 +596,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-xl-9 col-lg-8 col-6\">\n      <h3>Gallery</h3>\n      <button class=\"btn btn-primary\" (click)=\"refresh()\">Refresh</button>\n      <div class=\"row\">\n        <div class=\"col-xl-3\" *ngFor=\"let item of content)\">\n          <app-gallery-item [model]=\"item\" class=\"m-1\"></app-gallery-item>\n        </div>\n        \n      </div>\n    </div>\n    <div class=\"col-xl-3 col-lg-4 col-6 side-upload-container\" style=\"height: 100vh\">\n      <app-side-upload></app-side-upload>\n    </div>\n  </div>"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-xl-9 col-lg-8 col-6\">\r\n        <mat-toolbar color=\"secondary\">\r\n            <span></span>\r\n\r\n            <!-- This fills the remaining space of the current row -->\r\n            <span class=\"example-fill-remaining-space\"></span>\r\n\r\n            <span>\r\n                <button mat-icon-button>\r\n                    <mat-icon aria-label=\"Approve\">\r\n                      done</mat-icon>\r\n                </button>\r\n            </span>\r\n        </mat-toolbar>\r\n        <div class=\"row\">\r\n            <div class=\"col-xl-3\" *ngFor=\"let item of (contentAsync | async)\">\r\n                <app-gallery-item [model]=\"item\" class=\"m-1\"></app-gallery-item>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-xl-3 col-lg-4 col-6 side-upload-container\" style=\"height: 100vh\">\r\n        <app-side-upload></app-side-upload>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -602,7 +612,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PendingGalleryComponent", function() { return PendingGalleryComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _store_app_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/app.actions */ "./src/app/store/app.actions.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_appState_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/appState.service */ "./src/app/services/appState.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -615,21 +626,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var PendingGalleryComponent = /** @class */ (function () {
-    function PendingGalleryComponent(store) {
+    function PendingGalleryComponent(store, appActions) {
         this.store = store;
+        this.appActions = appActions;
     }
     PendingGalleryComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.stateSubs = this.store.select("uploadFeature")
-            .subscribe(function (state) {
-            if (state.lastOperation == _store_app_actions__WEBPACK_IMPORTED_MODULE_2__["FETCH_LIST_SUCCESS"]) {
-                _this.content = state.pendingList;
-            }
-        });
+        this.contentAsync = this.store.select("uploadFeature").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (m) { return m.pendingList; }));
+        this.appActions.fetchPendingList(0, 50);
+        var items = this.store.select("uploadFeature").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (m) { return m.pendingList; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (l) { return l.forEach(function (p) { return p.isSelected; }); }));
+        items.subscribe(function (s) { return console.log(s); });
     };
     PendingGalleryComponent.prototype.refresh = function () {
-        this.store.dispatch(new _store_app_actions__WEBPACK_IMPORTED_MODULE_2__["FetchPendingList"]({ 'skip': 0, 'take': 50 }));
+        //this.store.dispatch(new fromAppAction.FetchPendingList({ 'skip': 0, 'take': 50 }));
+        this.appActions.fetchPendingList(0, 50);
     };
     PendingGalleryComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -637,7 +648,8 @@ var PendingGalleryComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./pending-gallery.component.html */ "./src/app/pages/pending-gallery/pending-gallery.component.html"),
             styles: [__webpack_require__(/*! ./pending-gallery.component.css */ "./src/app/pages/pending-gallery/pending-gallery.component.css")]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"],
+            _services_appState_service__WEBPACK_IMPORTED_MODULE_3__["AppStateService"]])
     ], PendingGalleryComponent);
     return PendingGalleryComponent;
 }());
@@ -664,7 +676,7 @@ module.exports = "\r\n.drop-zone{\r\n    margin: auto;\r\n    height: 100px;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row pt-5\">\n    <file-drop headertext=\"\" (onFileDrop)=\"dropped($event)\" (onFileOver)=\"fileOver($event)\" class=\"drop-zone\"\n      (onFileLeave)=\"fileLeave($event)\">\n      <span>Drop files here</span>\n    </file-drop>\n  </div>\n  <div class=\"row\">\n    <div class=\"upload-table\">\n      <table class=\"table\">\n        <thead>\n          <tr>\n            <th>Name</th>\n          </tr>\n        </thead>\n        <tbody class=\"upload-name-style\">\n          <tr *ngFor=\"let item of files; let i=index\">\n            <td><strong>{{ item.relativePath }}</strong></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row pt-5\">\r\n    <file-drop headertext=\"\" (onFileDrop)=\"dropped($event)\" (onFileOver)=\"fileOver($event)\" class=\"drop-zone\"\r\n      (onFileLeave)=\"fileLeave($event)\">\r\n      <span>Drop files here</span>\r\n    </file-drop>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"upload-table\">\r\n      <table class=\"table\">\r\n        <thead>\r\n          <tr>\r\n            <th>Name</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody class=\"upload-name-style\">\r\n          <tr *ngFor=\"let item of files; let i=index\">\r\n            <td><strong>{{ item.relativePath }}</strong></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -749,6 +761,55 @@ var SampleUploadComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], SampleUploadComponent);
     return SampleUploadComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/appState.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/appState.service.ts ***!
+  \**********************************************/
+/*! exports provided: AppStateService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppStateService", function() { return AppStateService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _store_app_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/app.actions */ "./src/app/store/app.actions.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AppStateService = /** @class */ (function () {
+    function AppStateService(store) {
+        this.store = store;
+    }
+    AppStateService.prototype.fetchApprovedList = function (skip, take) {
+        this.store.dispatch(new _store_app_actions__WEBPACK_IMPORTED_MODULE_2__["FetchApprovedList"]({ 'skip': skip, 'take': take }));
+    };
+    AppStateService.prototype.fetchPendingList = function (skip, take) {
+        this.store.dispatch(new _store_app_actions__WEBPACK_IMPORTED_MODULE_2__["FetchPendingList"]({ 'skip': skip, 'take': take }));
+    };
+    AppStateService.prototype.changeItemSelectedState = function (id) {
+        this.store.dispatch(new _store_app_actions__WEBPACK_IMPORTED_MODULE_2__["ChangeItemSelectedState"](id));
+    };
+    AppStateService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: 'root' }),
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+    ], AppStateService);
+    return AppStateService;
 }());
 
 
@@ -1124,7 +1185,7 @@ var FileUploaderService = /** @class */ (function () {
 /*!**************************************!*\
   !*** ./src/app/store/app.actions.ts ***!
   \**************************************/
-/*! exports provided: ENQUEUE_FILE, UPLOAD_FILE, START_UPLOAD, STOP_UPLOAD, START_UPLOAD_NEXT, SET_AUTO_UPLOAD, UPLOAD_NEXT, FETCH_PENDING_LIST, FETCH_APPROVED_LIST, FILE_ENQUEUED, FILE_UPLOADING, FILE_UPLOAD_COMPLETE, FILE_UPLOAD_FAILED, ALL_UPLOAD_COMPLETE, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE, EnqueueFile, StartUpload, StopUpload, UploadNext, UploadFile, SetAutoUpload, FetchPendingList, FetchApprovedList, FileUploading, FileUploadComplete, FileUploadFailed, AllUploadComplete, FetchListSucceed, FetchListFailed */
+/*! exports provided: ENQUEUE_FILE, UPLOAD_FILE, START_UPLOAD, STOP_UPLOAD, START_UPLOAD_NEXT, SET_AUTO_UPLOAD, UPLOAD_NEXT, FETCH_PENDING_LIST, FETCH_APPROVED_LIST, CHANGE_ITEM_SELECTED_STATE, FILE_ENQUEUED, FILE_UPLOADING, FILE_UPLOAD_COMPLETE, FILE_UPLOAD_FAILED, ALL_UPLOAD_COMPLETE, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE, EnqueueFile, StartUpload, StopUpload, UploadNext, UploadFile, SetAutoUpload, FetchPendingList, FetchApprovedList, ChangeItemSelectedState, FileUploading, FileUploadComplete, FileUploadFailed, AllUploadComplete, FetchListSucceed, FetchListFailed */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1138,6 +1199,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPLOAD_NEXT", function() { return UPLOAD_NEXT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_PENDING_LIST", function() { return FETCH_PENDING_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_APPROVED_LIST", function() { return FETCH_APPROVED_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_ITEM_SELECTED_STATE", function() { return CHANGE_ITEM_SELECTED_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILE_ENQUEUED", function() { return FILE_ENQUEUED; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILE_UPLOADING", function() { return FILE_UPLOADING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILE_UPLOAD_COMPLETE", function() { return FILE_UPLOAD_COMPLETE; });
@@ -1153,6 +1215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetAutoUpload", function() { return SetAutoUpload; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FetchPendingList", function() { return FetchPendingList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FetchApprovedList", function() { return FetchApprovedList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangeItemSelectedState", function() { return ChangeItemSelectedState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploading", function() { return FileUploading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploadComplete", function() { return FileUploadComplete; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploadFailed", function() { return FileUploadFailed; });
@@ -1168,6 +1231,7 @@ var SET_AUTO_UPLOAD = '[APP:CMD]=SET_AUTO_UPLOAD';
 var UPLOAD_NEXT = '[APP:CMD]=UPLOAD_NEXT';
 var FETCH_PENDING_LIST = '[APP:CMD]=FETCH_PENDING_LIST';
 var FETCH_APPROVED_LIST = '[APP:CMD]=FETCH_APPROVED_LIST';
+var CHANGE_ITEM_SELECTED_STATE = '[APP:CMD]=CHANGE_ITEM_SELECTED_STATE';
 var FILE_ENQUEUED = '[APP:EVENT]=FILE_ENQUEUED';
 var FILE_UPLOADING = "[APP:EVENT]=FILE_UPLOADING";
 var FILE_UPLOAD_COMPLETE = "[APP:EVENT]=FILE_UPLOAD_COMPLETE";
@@ -1234,6 +1298,14 @@ var FetchApprovedList = /** @class */ (function () {
         this.type = FETCH_APPROVED_LIST;
     }
     return FetchApprovedList;
+}());
+
+var ChangeItemSelectedState = /** @class */ (function () {
+    function ChangeItemSelectedState(payload) {
+        this.payload = payload;
+        this.type = CHANGE_ITEM_SELECTED_STATE;
+    }
+    return ChangeItemSelectedState;
 }());
 
 var FileUploading = /** @class */ (function () {
@@ -1551,7 +1623,7 @@ function isAllowed(fileName) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fa-heart {\n  color: hotpink;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdWkvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtDQUNoQiIsImZpbGUiOiJzcmMvYXBwL3VpL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mYS1oZWFydCB7XG4gIGNvbG9yOiBob3RwaW5rO1xufVxuIl19 */"
+module.exports = ".fa-heart {\r\n  color: hotpink;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdWkvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtDQUNoQiIsImZpbGUiOiJzcmMvYXBwL3VpL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mYS1oZWFydCB7XHJcbiAgY29sb3I6IGhvdHBpbms7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -1562,7 +1634,7 @@ module.exports = ".fa-heart {\n  color: hotpink;\n}\n\n/*# sourceMappingURL=data
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-dark bg-dark mt-5 fixed-bottom\">\n  <div class=\"navbar-expand m-auto navbar-text\">\n    Maarifa <i class=\"fa fa-heart\"></i> by <a href=\"https://maarifa.com.tr\">Maarifa</a>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-dark bg-dark mt-5 fixed-bottom\">\r\n  <div class=\"navbar-expand m-auto navbar-text\">\r\n    Maarifa <i class=\"fa fa-heart\"></i> by <a href=\"https://maarifa.com.tr\">Maarifa</a>\r\n  </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -1709,7 +1781,7 @@ module.exports = "\r\n\r\n.side-menu{\r\n    width:250px;\r\n}\r\n\r\n.content,\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n<!-- <app-footer></app-footer> -->"
+module.exports = "<app-header></app-header>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-12\">\r\n      <ng-content></ng-content>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- <app-footer></app-footer> -->"
 
 /***/ }),
 
@@ -1835,7 +1907,7 @@ module.exports = "\r\n.drop-zone{\r\n    margin: auto;\r\n    height: 150px;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row pt-5\">\n    <file-drop headertext=\"\" (onFileDrop)=\"dropped($event)\" (onFileOver)=\"fileOver($event)\" customstyle=\"border:0px;\"\n      class=\"drop-zone\" (onFileLeave)=\"fileLeave($event)\">\n      <span>Drop files here</span>\n    </file-drop>\n  </div>\n  <div class=\"row\">\n    <div class=\"upload-table\">\n      <table class=\"table table-sm table-striped\">\n        <thead class=\"thead-dark\">\n          <tr>\n            <th scope=\"col\">Name</th>\n            <th scope=\"col\">Size</th>\n            <th scope=\"col\">%</th>\n            <th scope=\"col\">State</th>\n            <th scope=\"col\"></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let item of queue | async\">\n            <td><strong>{{ item?.file?.name }}</strong></td>\n            <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\n            <td>{{ item.progress + ' %' }}</td>\n            <td>\n              <span *ngIf=\"item.isPending()\" class=\"badge badge-default\">Pending</span>\n              <span *ngIf=\"item.isSuccess()\" class=\"badge badge-success\">Uploaded</span>\n              <span *ngIf=\"item.inProgress()\" class=\"badge badge-warning\">Uploading</span>\n              <span *ngIf=\"item.isError()\" class=\"badge badge-danger\">Error</span>\n              <span *ngIf=\"item.inQueued()\" class=\"badge badge-secondary\">Queued</span>\n            </td>\n            <td class=\"text-right\">\n              <a tooltip=\"Upload file\" (click)=\"item.upload()\" *ngIf=\"item.isUploadable()\">\n                <i class=\"fa fa-upload\"></i>\n              </a>\n              <a tooltip=\"Cancel upload\" (click)=\"item.cancel()\" *ngIf=\"item.inProgress()\">\n                <i class=\"fa fa-times-circle\"></i>\n              </a>\n              <a tooltip=\"Remove from queue\" (click)=\"item.remove()\" *ngIf=\"!item.inProgress()\">\n                <i class=\"fa fa-trash\"></i>\n              </a>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"row\">\n    <button class=\"btn btn-primary\" (click)=\"uploadQueue()\">Upload By Queue</button>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row pt-5\">\r\n    <file-drop headertext=\"\" (onFileDrop)=\"dropped($event)\" (onFileOver)=\"fileOver($event)\" customstyle=\"border:0px;\"\r\n      class=\"drop-zone\" (onFileLeave)=\"fileLeave($event)\">\r\n      <span>Drop files here</span>\r\n    </file-drop>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"upload-table\">\r\n      <table class=\"table table-sm table-striped\">\r\n        <thead class=\"thead-dark\">\r\n          <tr>\r\n            <th scope=\"col\">Name</th>\r\n            <th scope=\"col\">Size</th>\r\n            <th scope=\"col\">%</th>\r\n            <th scope=\"col\">State</th>\r\n            <th scope=\"col\"></th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of queue | async\">\r\n            <td><strong>{{ item?.file?.name }}</strong></td>\r\n            <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n            <td>{{ item.progress + ' %' }}</td>\r\n            <td>\r\n              <span *ngIf=\"item.isPending()\" class=\"badge badge-default\">Pending</span>\r\n              <span *ngIf=\"item.isSuccess()\" class=\"badge badge-success\">Uploaded</span>\r\n              <span *ngIf=\"item.inProgress()\" class=\"badge badge-warning\">Uploading</span>\r\n              <span *ngIf=\"item.isError()\" class=\"badge badge-danger\">Error</span>\r\n              <span *ngIf=\"item.inQueued()\" class=\"badge badge-secondary\">Queued</span>\r\n            </td>\r\n            <td class=\"text-right\">\r\n              <a tooltip=\"Upload file\" (click)=\"item.upload()\" *ngIf=\"item.isUploadable()\">\r\n                <i class=\"fa fa-upload\"></i>\r\n              </a>\r\n              <a tooltip=\"Cancel upload\" (click)=\"item.cancel()\" *ngIf=\"item.inProgress()\">\r\n                <i class=\"fa fa-times-circle\"></i>\r\n              </a>\r\n              <a tooltip=\"Remove from queue\" (click)=\"item.remove()\" *ngIf=\"!item.inProgress()\">\r\n                <i class=\"fa fa-trash\"></i>\r\n              </a>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <button class=\"btn btn-primary\" (click)=\"uploadQueue()\">Upload By Queue</button>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1978,7 +2050,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Projects\My\memoryvault\MemoryVault.Manager.UI\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Projects\memoryvault\MemoryVault.Manager.UI\src\main.ts */"./src/main.ts");
 
 
 /***/ })

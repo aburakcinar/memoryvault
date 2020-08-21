@@ -13,6 +13,7 @@ export const SET_AUTO_UPLOAD = '[APP:CMD]=SET_AUTO_UPLOAD';
 export const UPLOAD_NEXT = '[APP:CMD]=UPLOAD_NEXT';
 export const FETCH_PENDING_LIST = '[APP:CMD]=FETCH_PENDING_LIST';
 export const FETCH_APPROVED_LIST = '[APP:CMD]=FETCH_APPROVED_LIST';
+export const CHANGE_ITEM_SELECTED_STATE = '[APP:CMD]=CHANGE_ITEM_SELECTED_STATE';
 
 export const FILE_ENQUEUED = '[APP:EVENT]=FILE_ENQUEUED';
 export const FILE_UPLOADING = "[APP:EVENT]=FILE_UPLOADING";
@@ -62,6 +63,12 @@ export class FetchApprovedList implements Action {
     readonly type = FETCH_APPROVED_LIST;
 
     constructor(public payload: { skip: number, take: number }) { }
+}
+
+export class ChangeItemSelectedState implements Action {
+    readonly type = CHANGE_ITEM_SELECTED_STATE;
+
+    constructor(public payload: string) { }
 }
 
 export class FileUploading implements Action {

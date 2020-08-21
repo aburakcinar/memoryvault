@@ -1,6 +1,6 @@
 <div class="card w-100" [ngClass]="{'card-selected':model.isSelected}">
   <img class="card-img-top" src="http://localhost:5000/api/thumbfetch/{{ model.id}}/M" alt="Card image cap">
-  <input type="checkbox" [checked]="model.isSelected" (change)="model.isSelected = !model.isSelected"/>
+  <input type="checkbox" [checked]="model.isSelected" (change)="changeSelected()"/>
   <div class="card-body">
     <h6 class="card-title">{{ model.fileName }}</h6>    
     <p>{{ model.isSelected }}</p>

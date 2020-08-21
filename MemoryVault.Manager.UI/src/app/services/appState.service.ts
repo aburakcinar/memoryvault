@@ -19,4 +19,10 @@ export class AppStateService {
         this.store.dispatch(
             new fromAppActions.FetchPendingList({'skip':skip,'take':take}));
     }
+
+    changeItemSelectedState(id: string){
+        this.store.dispatch(
+            new fromAppActions.ChangeItemSelectedState(id)
+        );
+    }
 }

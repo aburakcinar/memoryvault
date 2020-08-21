@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MemoryVaultListItem } from 'src/app/store/app.reducer';
+import { AppStateService } from 'src/app/services/appState.service';
 
 @Component({
   selector: 'app-gallery-item',
@@ -8,11 +10,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GalleryItemComponent implements OnInit {
 
   @Input()
-  model: any;
+  model: MemoryVaultListItem;
 
-  constructor() { }
+  constructor(
+    private appActions: AppStateService) { }
 
   ngOnInit() {
   }
 
+  public changeSelected(){
+      
+  }
 }
